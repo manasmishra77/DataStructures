@@ -105,9 +105,9 @@
 				B6DC3858235B839900791487 /* SceneDelegate.swift */,
 				B6DC385A235B839900791487 /* ViewController.swift */,
 				B6DC3886235B83DE00791487 /* DSs */,
-				B6DC385C235B839900791487 /* Main.storyboard */,
 				B6DC385F235B839E00791487 /* Assets.xcassets */,
 				B6DC3861235B839E00791487 /* LaunchScreen.storyboard */,
+				B6DC385C235B839900791487 /* Main.storyboard */,
 				B6DC3864235B839E00791487 /* Info.plist */,
 			);
 			path = DataStructures;

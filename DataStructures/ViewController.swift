@@ -16,6 +16,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnClicked(_ sender: UIButton) {
+        var items = [5, 7, 14, 3, 6, 8, 12, 16]
+        var heap = Heap(&items, isMin: true)
+        heap.heapSortTheArray(items: &items)
     }
     
 }
