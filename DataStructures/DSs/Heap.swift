@@ -103,10 +103,10 @@ private extension Heap {
     }
 
     private func hasLeftChild(_ index: Int, from items: inout [Int]) -> Bool {
-        return getLeftChildIndex(index) < items.count
+        return getLeftChildIndex(index) <= lastIndex
     }
     private func hasRightChild(_ index: Int, from items: inout [Int]) -> Bool {
-        return getRightChildIndex(index) < items.count
+        return getRightChildIndex(index) <= lastIndex
     }
     private func hasParent(_ index: Int) -> Bool {
         return getParentIndex(index) >= startIndex
@@ -141,6 +141,7 @@ private extension Heap {
 //Building a heap from an existing array and heap
 extension Heap {
     mutating func buildAHeap(from items: inout [Int]) {
+        lastIndex = items.count-1
         for i in (0..<items.count).reversed() {
             heapifyDown(i, to: &items)
         }
@@ -148,16 +149,16 @@ extension Heap {
     }
 }
 
+
 //Heap sort an array
 extension Heap {
-    //
     mutating func heapSortTheArray(items: inout [Int]) {
-        
-        while startIndex < items.count-1 {
-            for i in (startIndex..<items.count).reversed() {
-                heapifyDown(i, to: &items)
-            }
-            startIndex+=1
+        while lastIndex > 0 {
+            let temp = items[lastIndex]
+            items[lastIndex] = items[0]
+            items[0] = temp
+            lastIndex -= 1
+            heapifyDown(0, to: &items)
         }
         print(items)
     }
