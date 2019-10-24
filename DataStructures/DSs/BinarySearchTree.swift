@@ -40,7 +40,7 @@ class BST {
     
     //Insert data in the tree
     func insert(_ parentNode: BSTNode, data: Int) {
-        if parentNode.data > data {
+        if parentNode.data < data {
             //Go right
             if parentNode.right == nil {
                 parentNode.right = BSTNode(data, left: nil, right: nil)
@@ -104,6 +104,7 @@ class BST {
                     predecesorNode.right = successorNode
                 }
             }
+            return true
         } else if data < currentNode.data {
             if currentNode.hasLeftChild {
                 return delete(parentNode: currentNode, currentNode: currentNode.left!, data: data)
