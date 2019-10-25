@@ -16,8 +16,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnClicked(_ sender: UIButton) {
-      bst()
+        let rep = Problems().calculateNoOfTimesOf(digit: 5, inBetween: 0, and: 56)
+        print(rep)
     }
+    
     
     func heap() {
         var items = [5, 7, 14, 3, 6, 8, 12, 16]

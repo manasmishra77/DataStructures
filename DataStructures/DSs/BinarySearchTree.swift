@@ -127,3 +127,36 @@ class BST {
     }
 }
 
+extension BST {
+    func heightOfTheBinaryTree(_ root: BSTNode?) -> Int {
+        if let root = root {
+            let lHeight = heightOfTheBinaryTree(root.left)
+            let rHeight = heightOfTheBinaryTree(root.right)
+            return 1+(max(lHeight, rHeight))
+        } else {
+            return 0
+        }
+    }
+}
+extension BST {
+    
+    func isBalancedTree(_ root: BSTNode?) -> Bool {
+        if let root = root {
+            if root.isLeaf {
+                return true
+            }
+            let isLeftSubTreeBalanced = isBalancedTree(root.left)
+            let isRightSubTreeBalanced = isBalancedTree(root.right)
+            let heightDIfference = heightOfTheBinaryTree(root.left) - heightOfTheBinaryTree(root.right)
+            let isValidDifference = heightDIfference >= -1 || heightDIfference <= 1
+            return (isLeftSubTreeBalanced && isRightSubTreeBalanced && isValidDifference)
+        } else {
+            return true
+        }
+    }
+    
+    func balancingBST(_ root: BSTNode) -> Int {
+        return 0
+    }
+}
+
