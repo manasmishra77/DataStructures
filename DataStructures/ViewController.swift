@@ -10,14 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textfield: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
     @IBAction func btnClicked(_ sender: UIButton) {
-        let rep = Problems().calculateNoOfTimesOf(digit: 5, inBetween: 0, and: 56)
-        print(rep)
+        if let numText = textfield.text, let num = Int(numText) {
+            let rep = Problems().calculateNoOfTimesOf(digit: 2, inBetween: 0, and: num)
+            print(rep)
+        }
+        
+        
+        
     }
     
     

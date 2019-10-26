@@ -22,13 +22,28 @@ extension Problems {
     }
     
     func getrepetionCountForNum(num: Int, digit: Int) -> Int {
-        let endNumDigits = getAllDigitsInArrayOf(num: num)
+        if num == 0, digit == 0 {
+            return 1
+        }
+        let endNumDigits = num.allDigits
         let maximumPower = endNumDigits.count-1
         var repetitionCount = 0
         for i in 0..<maximumPower {
-            repetitionCount += ((num/10.expo(maximumPower-i))*10.expo(maximumPower-i-1))
+            if maximumPower-1 == i {
+               if digit > 0 {
+                    repetitionCount += ((num/10.expo(maximumPower-i))*10.expo(maximumPower-i-1))
+                }
+            } else {
+                repetitionCount += ((num/10.expo(maximumPower-i))*10.expo(maximumPower-i-1))
+            }
+            if endNumDigits[i+1] > digit {
+                repetitionCount += 10.expo(maximumPower-i-1)
+            } else if endNumDigits[i+1] == digit {
+                repetitionCount += num%10.expo(maximumPower-i-1)
+                repetitionCount += 1
+            }
         }
-        if let first = endNumDigits.first {
+        if let first = endNumDigits.first, digit > 0 {
             if digit < first {
                 repetitionCount += 10.expo(maximumPower)
             } else if digit == first {
@@ -38,38 +53,38 @@ extension Problems {
         }
         return repetitionCount
     }
+}
+
+extension Int {
     
-    func getAllDigitsInArrayOf(num: Int) -> [Int] {
-        var newNum = num
+    func expo(_ power: Int) -> Int {
+        var result = 1
+        var powerNum = power
+        var tempExpo = self
+        while (powerNum != 0){
+            if (powerNum%2 == 1){
+                result *= tempExpo
+            }
+            powerNum /= 2
+            tempExpo *= tempExpo
+        }
+        return result
+    }
+    
+    var allDigits: [Int] {
+        var newNum = self
         var digits: [Int] = []
-        while num >= 0 {
+        while self >= 0 {
             let digit = newNum%10
             digits.append(digit)
             newNum = newNum/10
             if newNum < 10 {
-                if num >= 10 {
+                if self >= 10 {
                     digits.append(newNum)
                 }
                 break
             }
         }
         return digits.reversed()
-    }
-    
-}
-
-extension Int{
-    func expo(_ power: Int) -> Int {
-        var result = 1
-        var powerNum = power
-        var tempExpo = self
-        while (powerNum != 0){
-        if (powerNum%2 == 1){
-            result *= tempExpo
-        }
-        powerNum /= 2
-        tempExpo *= tempExpo
-        }
-        return result
     }
 }
