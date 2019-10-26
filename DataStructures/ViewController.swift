@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     @IBAction func btnClicked(_ sender: UIButton) {
         if let numText = textfield.text, let num = Int(numText) {
-            let rep = Problems().calculateNoOfTimesOf(digit: 2, inBetween: 0, and: num)
+            let rep = Problems().calculateNoOfTimesOf(digit: 1, inBetween: 1100, and: num)
             print(rep)
         }
         
