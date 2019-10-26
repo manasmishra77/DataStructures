@@ -73,28 +73,27 @@ class FullBinaryTree {
         */
         //Using Stack
         let stack = Stack<TreeNode>(size: 100)
-        var temp = root
+        var temp: TreeNode? = root
         
         while temp != nil {
-            print(temp.data)
-            stack.push(temp)
-            if temp.hasLeftChild {
-                temp = temp.left!
+            print(temp!.data ?? 0)
+           
+            //If node has leftchild then go to left node
+            if temp!.hasLeftChild {
+                 _ = stack.push(temp!)
+                temp = temp!.left!
             } else {
-                if stack.isStackEmpty {
+                if stack.isEmpty {
                     break
                 }
-                var newTemp = stack.pop()
-                if newTemp
-                
-                while newTemp?.hasRightChild
-                
-                if temp.hasRightChild {
-                    stack.pop()
-                    temp = temp.right!
-                } else {
-                    
+                var newTemp = temp
+                while !((newTemp?.hasRightChild)!) {
+                    newTemp = stack.pop()
+                    if newTemp == nil {
+                        break
+                    }
                 }
+                temp = newTemp?.right
             }
         }
         
@@ -117,7 +116,7 @@ class FullBinaryTree {
                printTheTreePostOrder(root: root.right!)
            }
         let pre = (root.data == self.root.data) ? "Post" : ""
-        print("\(pre)\(String(describing: root.data ?? 0)) ")
+        //print("\(pre)\(String(describing: root.data ?? 0)) ")
        }
     
 }

@@ -19,7 +19,7 @@ class Stack<Element> {
             stackArr.append(nil)
         }
     }
-    var isStackEmpty: Bool {
+    var isEmpty: Bool {
         return currentIndex == nil
     }
     
@@ -28,7 +28,7 @@ class Stack<Element> {
     }
     
     func push(_ element: Element) -> Bool {
-        if isStackEmpty {
+        if isEmpty {
             currentIndex = 0
         } else {
             currentIndex += 1
@@ -41,7 +41,7 @@ class Stack<Element> {
         return true
     }
     func pop() -> Element? {
-        if isStackEmpty {
+        if isEmpty {
             return nil
         }
         let element = stackArr[currentIndex]

@@ -18,7 +18,8 @@ class ViewController: UIViewController {
 
     @IBAction func btnClicked(_ sender: UIButton) {
         if let numText = textfield.text {
-            let tree = FullBinaryTree(tree: numText)
+            let arr = "12L13R24L25R"
+            let tree = FullBinaryTree(tree: arr)
             tree.printTheTree()
         }
         
