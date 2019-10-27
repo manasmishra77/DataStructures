@@ -54,12 +54,14 @@ class FullBinaryTree {
     }
     
     func printTheTree() {
+       // printTheTreeInOrderUsingLoopOnly(root: root)
+        printTheTreePreOrderUsingLoopOnly(root: root)
         //printTheTreeInOrder(root: root)
         //printTheTreePreOrder(root: root)
-        printTheTreePostOrder(root: root)
+        //printTheTreePostOrder(root: root)
     }
     
-    func printTheTreeInOrder(root: TreeNode) {
+    func printTheTreePreOrder(root: TreeNode) {
         //Using Recursion
         let pre = (root.data == self.root.data) ? "In" : ""
         print("\(pre)\(String(describing: root.data ?? 0)) ")
@@ -70,7 +72,8 @@ class FullBinaryTree {
             printTheTreeInOrder(root: root.right!)
         }
     }
-    func printTheTreePreOrder(root: TreeNode) {
+    
+    func printTheTreeInOrder(root: TreeNode) {
         if root.hasLeftChild {
             printTheTreePreOrder(root: root.left!)
         }
@@ -95,7 +98,7 @@ class FullBinaryTree {
 }
 //Print using stack
 extension FullBinaryTree {
-    func printTheTreeInOrderUsingStack(root: TreeNode) {
+    func printTheTreePreOrderUsingStack(root: TreeNode) {
         //Using Stack
         let stack = Stack<TreeNode>(size: 100)
         var temp: TreeNode? = root
@@ -122,7 +125,7 @@ extension FullBinaryTree {
             }
         }
     }
-    func printTheTreePreOrderUsingStack(root: TreeNode) {
+    func printTheTreeInOrderUsingStack(root: TreeNode) {
         
         //Using Stack
         let stack = Stack<TreeNode>(size: 100)
@@ -176,6 +179,79 @@ extension FullBinaryTree {
         }
     }
 
+}
+//Print using while loop
+
+extension FullBinaryTree {
+    func printTheTreeInOrderUsingLoopOnly(root: TreeNode) {
+        var current: TreeNode? = root
+        while current != nil {
+            if !(current!.hasLeftChild) {
+                print(current!.data ?? 0)
+               current = current?.right
+            } else {
+                var pred = current!.left
+                while !(pred?.right == nil || pred?.right === current) {
+                    pred = pred?.right
+                }
+                if pred?.right == nil {
+                    pred?.right = current
+                    current = current?.left
+                } else {
+                    pred?.right = nil
+                    print(current!.data ?? 0)
+                    current = current?.right
+                }
+                
+            }
+        }
+    }
+    func printTheTreePreOrderUsingLoopOnly(root: TreeNode) {
+        var current: TreeNode? = root
+        while current != nil {
+            if !(current!.hasLeftChild) {
+                print(current!.data ?? 0)
+               current = current?.right
+            } else {
+                var pred = current!.left
+                while !(pred?.right == nil || pred?.right === current) {
+                    pred = pred?.right
+                }
+                if pred?.right == nil {
+                    print(current!.data ?? 0)
+                    pred?.right = current
+                    current = current?.left
+                } else {
+                    pred?.right = nil
+                    current = current?.right
+                }
+                
+            }
+        }
+    }
+    func printTheTreePostOrderUsingLoopOnly(root: TreeNode) {
+        var current: TreeNode? = root
+        while current != nil {
+            if !(current!.hasLeftChild) {
+                print(current!.data ?? 0)
+               current = current?.right
+            } else {
+                var pred = current!.left
+                while !(pred?.right == nil || pred?.right === current) {
+                    pred = pred?.right
+                }
+                if pred?.right == nil {
+                    print(current!.data ?? 0)
+                    pred?.right = current
+                    current = current?.left
+                } else {
+                    pred?.right = nil
+                    current = current?.right
+                }
+                
+            }
+        }
+    }
 }
 
 class TreeNode {
