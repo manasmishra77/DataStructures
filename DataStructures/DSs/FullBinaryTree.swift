@@ -54,13 +54,12 @@ class FullBinaryTree {
     }
     
     func printTheTree() {
-        printTheTreeInOrder(root: root)
-        printTheTreePreOrder(root: root)
+        //printTheTreeInOrder(root: root)
+        //printTheTreePreOrder(root: root)
         printTheTreePostOrder(root: root)
     }
     
     func printTheTreeInOrder(root: TreeNode) {
-        /*
         //Using Recursion
         let pre = (root.data == self.root.data) ? "In" : ""
         print("\(pre)\(String(describing: root.data ?? 0)) ")
@@ -70,7 +69,33 @@ class FullBinaryTree {
         if root.hasRightChild {
             printTheTreeInOrder(root: root.right!)
         }
-        */
+    }
+    func printTheTreePreOrder(root: TreeNode) {
+        if root.hasLeftChild {
+            printTheTreePreOrder(root: root.left!)
+        }
+        let pre = (root.data == self.root.data) ? "Pre" : ""
+        print("\(pre)\(String(describing: root.data ?? 0)) ")
+        if root.hasRightChild {
+            printTheTreePreOrder(root: root.right!)
+        }
+    }
+    func printTheTreePostOrder(root: TreeNode) {
+        if root.hasLeftChild {
+            printTheTreePostOrder(root: root.left!)
+        }
+        if root.hasRightChild {
+            printTheTreePostOrder(root: root.right!)
+        }
+        let pre = (root.data == self.root.data) ? "Post" : ""
+        print("\(pre)\(String(describing: root.data ?? 0)) ")
+        
+    }
+    
+}
+//Print using stack
+extension FullBinaryTree {
+    func printTheTreeInOrderUsingStack(root: TreeNode) {
         //Using Stack
         let stack = Stack<TreeNode>(size: 100)
         var temp: TreeNode? = root
@@ -96,29 +121,61 @@ class FullBinaryTree {
                 temp = newTemp?.right
             }
         }
+    }
+    func printTheTreePreOrderUsingStack(root: TreeNode) {
         
-    }
-    func printTheTreePreOrder(root: TreeNode) {
-        if root.hasLeftChild {
-            printTheTreePreOrder(root: root.left!)
+        //Using Stack
+        let stack = Stack<TreeNode>(size: 100)
+        var temp: TreeNode? = root
+        
+        while temp != nil {
+            //If node has leftchild then go to left node
+            if temp!.hasLeftChild {
+                 _ = stack.push(temp!)
+                temp = temp!.left!
+            } else {
+                print(temp!.data ?? 0)
+                if stack.isEmpty {
+                    break
+                }
+                var newTemp = temp
+                while !((newTemp?.hasRightChild)!) {
+                    newTemp = stack.pop()
+                    print(newTemp!.data ?? 0)
+                    if newTemp == nil {
+                        break
+                    }
+                }
+                temp = newTemp?.right
+            }
         }
-        let pre = (root.data == self.root.data) ? "Pre" : ""
-        print("\(pre)\(String(describing: root.data ?? 0)) ")
-        if root.hasRightChild {
-            printTheTreePreOrder(root: root.right!)
+    }
+    func printTheTreePostOrderUsingStack(root: TreeNode) {
+        //Using Stack
+        let stack = Stack<TreeNode>(size: 100)
+        var temp: TreeNode? = root
+        
+        while true {
+            while temp != nil {
+                if temp!.hasRightChild {
+                    _ = stack.push(temp!.right!)
+                }
+                _ = stack.push(temp!)
+                temp = temp?.left
+            }
+            let pop = stack.pop()
+            if stack.peek === pop?.right {
+                temp = stack.pop()
+                _ = stack.push(pop!)
+            } else {
+                print(pop?.data ?? 0)
+                if stack.isEmpty {
+                    break
+                }
+            }
         }
     }
-    func printTheTreePostOrder(root: TreeNode) {
-           if root.hasLeftChild {
-               printTheTreePostOrder(root: root.left!)
-           }
-           if root.hasRightChild {
-               printTheTreePostOrder(root: root.right!)
-           }
-        let pre = (root.data == self.root.data) ? "Post" : ""
-        //print("\(pre)\(String(describing: root.data ?? 0)) ")
-       }
-    
+
 }
 
 class TreeNode {

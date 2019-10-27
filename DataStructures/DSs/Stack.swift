@@ -27,6 +27,13 @@ class Stack<Element> {
         return stackArr.count
     }
     
+    var peek: Element? {
+        if isEmpty {
+            return nil
+        }
+        return stackArr[currentIndex]
+    }
+    
     func push(_ element: Element) -> Bool {
         if isEmpty {
             currentIndex = 0
