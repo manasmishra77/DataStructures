@@ -55,10 +55,13 @@ class FullBinaryTree {
     
     func printTheTree() {
        // printTheTreeInOrderUsingLoopOnly(root: root)
-        printTheTreePreOrderUsingLoopOnly(root: root)
+        //printTheTreePreOrderUsingLoopOnly(root: root)
         //printTheTreeInOrder(root: root)
         //printTheTreePreOrder(root: root)
         //printTheTreePostOrder(root: root)
+       // breadthFirstTraversalUsingQueue(root: root)
+        //zigZagTreeTraversal(root: root)
+        printTreeAsPyramid(root).printMatrix()
     }
     
     func printTheTreePreOrder(root: TreeNode) {
@@ -254,10 +257,97 @@ extension FullBinaryTree {
     }
 }
 
+//Breadth First Traversal
+extension FullBinaryTree {
+    func breadthFirstTraversalUsingQueue(root: TreeNode) {
+        let queue = Queue<TreeNode>(size: 100)
+        _ = queue.enqueue(root)
+        while !queue.isEmpty {
+            let node = queue.dequeue()
+            print(node!.data ?? 0)
+            if node!.hasLeftChild {
+                _ = queue.enqueue(node!.left!)
+            }
+            if node!.hasRightChild {
+                _ = queue.enqueue(node!.right!)
+            }
+        }
+    }
+    
+    func zigZagTreeTraversal(root: TreeNode) {
+        var isOdd = false
+        let level = TreeNode(-100)
+        let queue = Queue<TreeNode>(size: 100)
+        let stack = Stack<TreeNode>(size: 100)
+        _ = queue.enqueue(root)
+        _ = queue.enqueue(level)
+        while !queue.isEmpty {
+            let node = queue.dequeue()
+            if node === level {
+                if isOdd {
+                    while !stack.isEmpty {
+                        print(stack.pop()?.data ?? 0)
+                    }
+                }
+                isOdd = !isOdd
+                if !queue.isEmpty {
+                    _ = queue.enqueue(node!)
+                }
+            } else {
+                if isOdd {
+                    _ = stack.push(node!)
+                } else {
+                    print(node!.data ?? 0)
+                }
+                if node!.hasLeftChild {
+                    _ = queue.enqueue(node!.left!)
+                }
+                if node!.hasRightChild {
+                    _ = queue.enqueue(node!.right!)
+                }
+            }
+        }
+    }
+    
+    func printTreeAsPyramid(_ root: TreeNode) -> Matrix<String> {
+        if root.isLeaf {
+            let m = Matrix<String>(r: 1, c: 1)
+            _ = m.add(r: 0, c: 0, data: "\(root.data ?? 0)")
+            return m
+        }
+        var leftMatrix = Matrix<String>(r: 0, c: 0)
+        if root.hasLeftChild {
+            leftMatrix = printTreeAsPyramid(root.left!)
+        }
+        var rightMatrix = Matrix<String>(r: 0, c: 0)
+        if root.hasRightChild {
+            rightMatrix = printTreeAsPyramid(root.right!)
+        }
+        
+        let mNU = Matrix<String>(r: 1, c: (leftMatrix.columns + rightMatrix.columns)+1)
+        _ = mNU.add(r: 0, c: leftMatrix.columns, data: "\(root.data ?? 0)")
+        
+        let mNL = Matrix<String>(r: leftMatrix.rows, c: 1)
+        
+        leftMatrix.concatenate(matrix: mNL, isHorizontally: true)
+        leftMatrix.concatenate(matrix: rightMatrix, isHorizontally: true)
+        mNU.concatenate(matrix: leftMatrix, isHorizontally: false)
+        return mNU
+    }
+}
+
 class TreeNode {
     var data: Int!
     var left: TreeNode?
     var right: TreeNode?
+    init() {
+        
+    }
+    
+    init(_ data: Int) {
+        self.data = data
+    }
+    
     var hasLeftChild: Bool {
         return left != nil
     }

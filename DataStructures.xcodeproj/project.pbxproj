@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B626E745236614DB0057725F /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626E744236614DB0057725F /* LinkedList.swift */; };
 		B66D3C03235F854200A11814 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D3C02235F854200A11814 /* BinarySearchTree.swift */; };
 		B683DC142362D0A10071974C /* Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683DC132362D0A10071974C /* Problems.swift */; };
 		B6A416D62364556700194540 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A416D52364556700194540 /* Stack.swift */; };
 		B6A72357236414B800F34BBB /* FullBinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A72356236414B800F34BBB /* FullBinaryTree.swift */; };
 		B6BF64D22365EDFA00527062 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF64D12365EDFA00527062 /* Queue.swift */; };
+		B6C02FF5236702C200559B67 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C02FF4236702C200559B67 /* Matrix.swift */; };
 		B6DC3857235B839900791487 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC3856235B839900791487 /* AppDelegate.swift */; };
 		B6DC3859235B839900791487 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC3858235B839900791487 /* SceneDelegate.swift */; };
 		B6DC385B235B839900791487 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DC385A235B839900791487 /* ViewController.swift */; };
@@ -41,11 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B626E744236614DB0057725F /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		B66D3C02235F854200A11814 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
 		B683DC132362D0A10071974C /* Problems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problems.swift; sourceTree = "<group>"; };
 		B6A416D52364556700194540 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		B6A72356236414B800F34BBB /* FullBinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBinaryTree.swift; sourceTree = "<group>"; };
 		B6BF64D12365EDFA00527062 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		B6C02FF4236702C200559B67 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		B6DC3853235B839900791487 /* DataStructures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStructures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6DC3856235B839900791487 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6DC3858235B839900791487 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,8 @@
 				B66D3C02235F854200A11814 /* BinarySearchTree.swift */,
 				B6A416D52364556700194540 /* Stack.swift */,
 				B6BF64D12365EDFA00527062 /* Queue.swift */,
+				B626E744236614DB0057725F /* LinkedList.swift */,
+				B6C02FF4236702C200559B67 /* Matrix.swift */,
 			);
 			path = DSs;
 			sourceTree = "<group>";
@@ -295,8 +301,10 @@
 			files = (
 				B6DC385B235B839900791487 /* ViewController.swift in Sources */,
 				B6DC3857235B839900791487 /* AppDelegate.swift in Sources */,
+				B626E745236614DB0057725F /* LinkedList.swift in Sources */,
 				B6A72357236414B800F34BBB /* FullBinaryTree.swift in Sources */,
 				B6DC3859235B839900791487 /* SceneDelegate.swift in Sources */,
+				B6C02FF5236702C200559B67 /* Matrix.swift in Sources */,
 				B6A416D62364556700194540 /* Stack.swift in Sources */,
 				B683DC142362D0A10071974C /* Problems.swift in Sources */,
 				B6DC3888235B83F700791487 /* Heap.swift in Sources */,
