@@ -17,18 +17,36 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnClicked(_ sender: UIButton) {
-        if let numText = textfield.text {
+        //if let numText = textfield.text {
             //let arr = "12L13R24L25R36L37R"
 //            let arr = "12L13R24L25R36L37R59R58L80R"
 //
 //            let tree = FullBinaryTree(tree: arr)
 //            tree.printTheTree()
             
-            print(Problems().isStringSubstringOf(sub: numText, str: "manas"))
-        }
+            //print(Problems().isStringSubstringOf(sub: numText, str: "manas"))
+            trie()
+        //}
         
         
         
+    }
+    
+    func trie() {
+        let arr = ["man", "mat", "cat", "manas", "manav", "machine", "can"]
+        let trie = Trie()
+        
+        trie.insertWordUsingLoop(word: arr[0])
+        trie.insertWordUsingLoop(word: arr[1])
+        trie.isnertWordUsingRecursion(word: arr[2])
+        trie.isnertWordUsingRecursion(word: arr[3])
+        print(trie.searchWord(word: arr[2]))
+        print(trie.searchWord(word: arr[5]))
+        trie.insertWordUsingLoop(word: arr[4])
+        trie.insertWordUsingLoop(word: arr[5])
+        trie.insertWordUsingLoop(word: arr[6])
+        trie.deleteWord(word: arr[4])
+        print(trie.searchWord(word: arr[4]))
     }
     
     

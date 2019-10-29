@@ -88,3 +88,45 @@ extension Int {
         return digits.reversed()
     }
 }
+
+extension Problems {
+    
+    func isStringSubstringOf(sub: String, str: String) -> Bool {
+        var j = 0
+        for i in 0..<str.count where j<sub.count {
+            if (str.count - i) < (sub.count - j) {
+                return false
+            }
+            if str[i] == sub[j] {
+                j += 1
+            } else {
+                j = 0
+            }
+        }
+        return j == sub.count
+    }
+    
+    //tells between stringA and stringB, which one is lexicograhically prior
+    func isALexicographicallyPriorToB(_ a: String, _ b: String) -> Bool {
+        var j = 0
+        var i = 0
+        while (i < a.count && j < b.count) {
+            if a[i] > b[i] {
+                return false
+            }
+            i += 1
+            j += 1
+        }
+        return true
+    }
+    
+}
+
+extension StringProtocol {
+    subscript(_ offset: Int)                     -> Element     { self[index(startIndex, offsetBy: offset)] }
+    subscript(_ range: Range<Int>)               -> SubSequence { prefix(range.lowerBound+range.count).suffix(range.count) }
+    subscript(_ range: ClosedRange<Int>)         -> SubSequence { prefix(range.lowerBound+range.count).suffix(range.count) }
+    subscript(_ range: PartialRangeThrough<Int>) -> SubSequence { prefix(range.upperBound.advanced(by: 1)) }
+    subscript(_ range: PartialRangeUpTo<Int>)    -> SubSequence { prefix(range.upperBound) }
+    subscript(_ range: PartialRangeFrom<Int>)    -> SubSequence { suffix(Swift.max(0, count-range.lowerBound)) }
+}
