@@ -45,8 +45,10 @@ class ViewController: UIViewController {
         trie.insertWordUsingLoop(word: arr[4])
         trie.insertWordUsingLoop(word: arr[5])
         trie.insertWordUsingLoop(word: arr[6])
+        print(trie.searchWord(word: arr[4]))
         trie.deleteWord(word: arr[4])
         print(trie.searchWord(word: arr[4]))
+        print(trie.lexicofraphicallyReturneTheArray())
     }
     
     

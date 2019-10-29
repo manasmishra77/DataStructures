@@ -120,4 +120,21 @@ class Trie {
         
     }
     
+    
+    //This function lexicographically sort the array and return accordingly
+    func lexicofraphicallyReturneTheArray() -> [String] {
+        var strArr: [String] = []
+        
+        func getStrings(root: TrieNode, str: String) {
+            if root.isEndOfWord {
+                strArr.append(str)
+            }
+            for each in root.charcaterMap.keys.sorted() {
+                getStrings(root: root.charcaterMap[each]!, str: str + String(each))
+            }
+        }
+        getStrings(root: root, str: "")
+        return strArr
+    }
+    
 }
