@@ -19,10 +19,12 @@ class ViewController: UIViewController {
     @IBAction func btnClicked(_ sender: UIButton) {
         if let numText = textfield.text {
             //let arr = "12L13R24L25R36L37R"
-            let arr = "12L13R24L25R36L37R59R58L"
-
-            let tree = FullBinaryTree(tree: arr)
-            tree.printTheTree()
+//            let arr = "12L13R24L25R36L37R59R58L80R"
+//
+//            let tree = FullBinaryTree(tree: arr)
+//            tree.printTheTree()
+            
+            print(Problems().isStringSubstringOf(sub: numText, str: "manas"))
         }
         
         

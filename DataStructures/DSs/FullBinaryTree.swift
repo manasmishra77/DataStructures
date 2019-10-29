@@ -62,6 +62,7 @@ class FullBinaryTree {
        // breadthFirstTraversalUsingQueue(root: root)
         //zigZagTreeTraversal(root: root)
         printTreeAsPyramid(root).printMatrix()
+        print(isFullBinaryTree(root: root))
     }
     
     func printTheTreePreOrder(root: TreeNode) {
@@ -356,6 +357,22 @@ class TreeNode {
     }
     var isLeaf: Bool {
         return (left == nil && right == nil)
+    }
+}
+
+extension FullBinaryTree {
+    func isFullBinaryTree(root: TreeNode) -> Bool {
+        if root.isLeaf {
+            return true
+        }
+        var isFull = root.hasRightChild&&root.hasLeftChild
+        if isFull {
+            isFull = isFull && isFullBinaryTree(root: root.right!) && isFullBinaryTree(root: root.left!)
+        }
+        return isFull
+    }
+    func isCompleteBinaryTree(root: TreeNode) -> Bool {
+        return false
     }
 }
 

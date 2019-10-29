@@ -88,7 +88,7 @@ class Matrix<T> {
     func printMatrix() {
         for i in 0..<rows {
             var str = ""
-            for j in 0..<columns {
+            for j in 0..<arr[i].count {
                 if let element = arr[i][j] {
                     str += "\(element)"
                 } else {
