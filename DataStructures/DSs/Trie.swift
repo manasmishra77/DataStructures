@@ -67,8 +67,8 @@ class Trie {
                 let newTrieNode = TrieNode(isEnd: false)
                 node.insertInMap(char: word[currentIndex], node: newTrieNode)
             }
-            insertChar(node: node.trieMapFor(char: word[currentIndex]))
             currentIndex += 1
+            insertChar(node: node.trieMapFor(char: word[currentIndex-1]))
         }
         insertChar(node: root)
     }
@@ -104,8 +104,8 @@ class Trie {
                 return false
             }
             if node.isCharPresentInMap(char: word[currentIndex]) {
-                let isToDeleteTheNode = deleteTheWord(node: node.trieMapFor(char: word[currentIndex]))
                 currentIndex += 1
+                let isToDeleteTheNode = deleteTheWord(node: node.trieMapFor(char: word[currentIndex-1]))
                 if isToDeleteTheNode {
                     currentIndex -= 1
                     node.insertInMap(char: word[currentIndex], node: nil)

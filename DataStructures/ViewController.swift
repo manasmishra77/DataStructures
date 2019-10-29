@@ -35,13 +35,13 @@ class ViewController: UIViewController {
     func trie() {
         let arr = ["man", "mat", "cat", "manas", "manav", "machine", "can"]
         let trie = Trie()
-        
         trie.insertWordUsingLoop(word: arr[0])
         trie.insertWordUsingLoop(word: arr[1])
         trie.isnertWordUsingRecursion(word: arr[2])
         trie.isnertWordUsingRecursion(word: arr[3])
         print(trie.searchWord(word: arr[2]))
         print(trie.searchWord(word: arr[5]))
+        print(trie.searchWord(word: "ma"))
         trie.insertWordUsingLoop(word: arr[4])
         trie.insertWordUsingLoop(word: arr[5])
         trie.insertWordUsingLoop(word: arr[6])
