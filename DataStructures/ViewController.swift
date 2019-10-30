@@ -25,8 +25,11 @@ class ViewController: UIViewController {
 //            tree.printTheTree()
             
             //print(Problems().isStringSubstringOf(sub: numText, str: "manas"))
-            trie()
+            //trie()
         //}
+       var a1 = ["ma", "ak", "ks", "jkl"]
+       var a2 = ["manas", "akash", "kddsks", "ksssaas"]
+        print(Problems().returningTheSubstringArray(a1: a1, a2: a2))
         
         
         

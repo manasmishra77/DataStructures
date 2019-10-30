@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B626E745236614DB0057725F /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B626E744236614DB0057725F /* LinkedList.swift */; };
+		B64FC0F12369B11D005A3E79 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64FC0F02369B11D005A3E79 /* Utility.swift */; };
 		B66D3C03235F854200A11814 /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D3C02235F854200A11814 /* BinarySearchTree.swift */; };
 		B683DC142362D0A10071974C /* Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B683DC132362D0A10071974C /* Problems.swift */; };
 		B694EA1523684175001FA706 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694EA1423684175001FA706 /* Trie.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		B626E744236614DB0057725F /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
+		B64FC0F02369B11D005A3E79 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		B66D3C02235F854200A11814 /* BinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
 		B683DC132362D0A10071974C /* Problems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problems.swift; sourceTree = "<group>"; };
 		B694EA1423684175001FA706 /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				B6DC3856235B839900791487 /* AppDelegate.swift */,
 				B6DC3858235B839900791487 /* SceneDelegate.swift */,
 				B6DC385A235B839900791487 /* ViewController.swift */,
+				B64FC0F02369B11D005A3E79 /* Utility.swift */,
 				B6DC3886235B83DE00791487 /* DSs */,
 				B6DC385F235B839E00791487 /* Assets.xcassets */,
 				B6DC3861235B839E00791487 /* LaunchScreen.storyboard */,
@@ -309,6 +312,7 @@
 				B6DC3859235B839900791487 /* SceneDelegate.swift in Sources */,
 				B6C02FF5236702C200559B67 /* Matrix.swift in Sources */,
 				B6A416D62364556700194540 /* Stack.swift in Sources */,
+				B64FC0F12369B11D005A3E79 /* Utility.swift in Sources */,
 				B683DC142362D0A10071974C /* Problems.swift in Sources */,
 				B6DC3888235B83F700791487 /* Heap.swift in Sources */,
 				B694EA1523684175001FA706 /* Trie.swift in Sources */,
