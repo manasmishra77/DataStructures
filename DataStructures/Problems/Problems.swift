@@ -67,6 +67,11 @@ extension Problems {
             }
             if str[i] == sub[j] {
                 j += 1
+            } else if j > 0 {
+                j = 0
+                if str[i] == sub[j] {
+                    j += 1
+                }
             } else {
                 j = 0
             }
