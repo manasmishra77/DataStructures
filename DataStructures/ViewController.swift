@@ -27,9 +27,23 @@ class ViewController: UIViewController {
             //print(Problems().isStringSubstringOf(sub: numText, str: "manas"))
             //trie()
         //}
-       var a1 = ["ma", "ak", "ks", "jkl"]
-       var a2 = ["manas", "akash", "kddsks", "ksssaas"]
-        print(Problems().returningTheSubstringArray(a1: a1, a2: a2))
+//       var a1 = ["ma", "ak", "ks", "jkl"]
+//       var a2 = ["manas", "akash", "kddsks", "ksssaas"]
+//        print(Problems().returningTheSubstringArray(a1: a1, a2: a2))
+        
+        //-1, -2, 3, 4, -5
+        
+        let linkedList = LinkedList<Int>(data: -1)
+        linkedList.append(-2)
+        linkedList.append(-3)
+        linkedList.append(4)
+        linkedList.append(5)
+        linkedList.append(-6)
+        linkedList.append(7)
+        linkedList.append(-8)
+        linkedList.append(9)
+        Problems().sortLinkListActucally(linklist: linkedList)
+        linkedList.printList()
         
         
         

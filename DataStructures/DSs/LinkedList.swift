@@ -31,6 +31,14 @@ class LinkedList<Element: Equatable> {
         head.data = data
     }
     
+    func printList() {
+        var temp = head
+        while temp != nil {
+            print(temp!.data ?? 0)
+            temp = temp?.next
+        }
+    }
+    
     var count: Int {
         var i = 0
         var temp = head
@@ -40,6 +48,21 @@ class LinkedList<Element: Equatable> {
         }
         return i
     }
+    
+    func indexOfNodeFromFirst(_ node: Node<Element>) -> Int? {
+        var index = 0
+        var temp = head
+        while temp != nil {
+            index += 1
+            if temp === node {
+                break
+            }
+            temp = temp?.next
+        }
+        return (index == 0) ? nil : index
+        
+    }
+    
     
     func append(_ data: Element) {
         let node = Node(data)
@@ -91,5 +114,36 @@ class LinkedList<Element: Equatable> {
         let toBeDeleted = temp?.next
         temp?.next = toBeDeleted?.next
         return toBeDeleted
+    }
+    
+    func reverseTill(fromFirst: Int) {
+        //var temp: Node<Element>?
+        func reverseTheLinkedList(_ node: Node<Element>?, prevnode: Node<Element>?, index: Int) {
+            if index == fromFirst {
+                var temp = head
+                temp?.next = node?.next
+                //head.next = temp
+                head = node
+                node?.next = prevnode
+                return
+            }
+            reverseTheLinkedList(node?.next, prevnode: node, index: index + 1)
+            if prevnode != nil {
+                node?.next = prevnode
+            }
+        }
+        reverseTheLinkedList(head, prevnode: nil, index: 1)
+        
+    }
+
+    
+    
+    func reverseTheLinkedList(_ node: Node<Element>?, prevnode: Node<Element>?) {
+        if node == nil {
+            head = prevnode
+            return
+        }
+        reverseTheLinkedList(node?.next, prevnode: node)
+        node?.next = prevnode
     }
 }

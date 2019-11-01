@@ -113,3 +113,67 @@ extension Problems {
     
 }
 
+extension Problems {
+    //Q: converting sorted linklist with absolute values to sorted linked list with actucal value
+    // linkList -1, 2, -3, 4 t0 -3, -1, 2, 4
+    
+    func sortLinkListActucally(linklist: LinkedList<Int>) {
+        var temp1: Node<Int>! = nil
+        var prev: Node<Int>! = nil
+        var temp2: Node<Int>! = linklist.head
+        linklist.printList()
+        
+        while temp2 != nil {
+            if temp1 != nil {
+                if temp2 === temp1.next {
+                    if !(temp2.data.isPositive) {
+                        temp1 = temp2
+                        prev = temp2
+                        temp2 = temp2.next
+                    } else {
+                        prev = temp2
+                        temp2 = temp2.next
+                    }
+                } else {
+                    if !(temp2.data.isPositive) {
+                        prev.next = temp2.next
+                        temp2.next = temp1.next
+                        temp1.next = temp2
+                        
+                        temp1 = temp2
+                        prev = temp2
+                        temp2 = temp2.next
+                    } else {
+                        prev = temp2
+                        temp2 = temp2.next
+                    }
+                }
+            } else {
+                if !(temp2.data.isPositive) {
+                    if temp2 === linklist.head {
+                        temp1 = temp2
+                        prev = temp2
+                        temp2 = temp2.next
+                    } else {
+                        temp2.next = linklist.head
+                        linklist.head = temp2
+                        temp1 = temp2
+                        prev = temp2
+                        temp2 = temp2.next
+                    }
+                } else {
+                    prev = temp2
+                    temp2 = temp2.next
+                }
+            }
+        }
+        linklist.printList()
+        
+        if let temp1 = temp1, let index = linklist.indexOfNodeFromFirst(temp1) {
+            linklist.reverseTill(fromFirst: index)
+        }
+        linklist.printList()
+        
+    }
+}
+

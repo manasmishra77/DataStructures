@@ -18,6 +18,14 @@ extension StringProtocol {
 }
 
 extension Int {
+    var isPositive: Bool {
+        if self >= 0 {
+            return true
+        }
+        return false
+    }
+    
+    
     func expo(_ power: Int) -> Int {
         var result = 1
         var powerNum = power
