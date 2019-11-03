@@ -177,3 +177,48 @@ extension Problems {
     }
 }
 
+extension Problems {
+    //Q: input - "1ad23s", output: 24
+    func numberFromString(str: String) -> Int {
+        var sum = 0
+        var power = 0
+        
+        for i in 0..<str.count {
+            let index = str.count - i - 1
+            if let currentNum = Int("\(str[index])") {
+                sum += currentNum * 10.expo(power)
+                power += 1
+            } else {
+                power = 0
+            }
+        }
+        print(sum)
+        return sum
+    }
+}
+extension Problems {
+    //Q: Area of the overlapping rectangles where bottomleft and top right of the rectangles are given
+    struct Rectangle {
+        var bottomLeft: CGPoint
+        var topRight: CGPoint
+    }
+    func areaOfOverlappingRectangle(rec1: Rectangle, rec2: Rectangle) -> Int {
+        //Overlapping Lower bottom X
+        let oLLBX = max(rec1.bottomLeft.x, rec2.bottomLeft.x)
+        let oLLBY = max(rec1.bottomLeft.y, rec2.bottomLeft.y)
+        
+        
+        let oLTRX = min(rec1.topRight.x, rec2.topRight.x)
+        let oLTRY = min(rec1.topRight.y, rec2.topRight.y)
+        
+        if oLLBX > oLTRX || oLLBY > oLLBY {
+            return 0
+        }
+        
+        let area = Int((oLTRY - oLLBY) * (oLTRX - oLLBX))
+        
+        return abs(area)
+    }
+    
+}
+

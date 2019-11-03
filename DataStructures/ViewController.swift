@@ -32,20 +32,24 @@ class ViewController: UIViewController {
 //        print(Problems().returningTheSubstringArray(a1: a1, a2: a2))
         
         //-1, -2, 3, 4, -5
+//
+//        let linkedList = LinkedList<Int>(data: -1)
+//        linkedList.append(-2)
+//        linkedList.append(-3)
+//        linkedList.append(4)
+//        linkedList.append(5)
+//        linkedList.append(-6)
+//        linkedList.append(7)
+//        linkedList.append(-8)
+//        linkedList.append(9)
+//        Problems().sortLinkListActucally(linklist: linkedList)
+//        linkedList.printList()
         
-        let linkedList = LinkedList<Int>(data: -1)
-        linkedList.append(-2)
-        linkedList.append(-3)
-        linkedList.append(4)
-        linkedList.append(5)
-        linkedList.append(-6)
-        linkedList.append(7)
-        linkedList.append(-8)
-        linkedList.append(9)
-        Problems().sortLinkListActucally(linklist: linkedList)
-        linkedList.printList()
-        
-        
+//        let str = "1ad23s"
+//        Problems().numberFromString(str: str)
+        let rec1 = Problems.Rectangle(bottomLeft: CGPoint(x: 1, y: 1), topRight: CGPoint(x: 4, y: 3))
+        let rec2 = Problems.Rectangle(bottomLeft: CGPoint(x: 3, y: 0), topRight: CGPoint(x: 7, y: 3))
+        print(Problems().areaOfOverlappingRectangle(rec1: rec1, rec2: rec2))
         
     }
     
