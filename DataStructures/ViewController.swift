@@ -47,10 +47,15 @@ class ViewController: UIViewController {
         
 //        let str = "1ad23s"
 //        Problems().numberFromString(str: str)
-        let rec1 = Problems.Rectangle(bottomLeft: CGPoint(x: 1, y: 1), topRight: CGPoint(x: 4, y: 3))
-        let rec2 = Problems.Rectangle(bottomLeft: CGPoint(x: 3, y: 0), topRight: CGPoint(x: 7, y: 3))
-        print(Problems().areaOfOverlappingRectangle(rec1: rec1, rec2: rec2))
+//        let rec1 = Problems.Rectangle(bottomLeft: CGPoint(x: 1, y: 1), topRight: CGPoint(x: 4, y: 3))
+//        let rec2 = Problems.Rectangle(bottomLeft: CGPoint(x: 3, y: 0), topRight: CGPoint(x: 7, y: 3))
+//        print(Problems().areaOfOverlappingRectangle(rec1: rec1, rec2: rec2))
         
+        var arr = [3, 4, 7, 5, 6, 8, 1, 9, 2]
+        arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        arr = [4, 3, 2, 1]
+        //mergeSortOnArray(arr: &arr)
+        quickSortOnArray(arr: &arr)
     }
     
     func trie() {
