@@ -222,3 +222,78 @@ extension Problems {
     
 }
 
+extension Problems {
+    //Q: Concerting a preorder array to tree and printing inorder
+    //pre: [10, 30, 20, 5, 15], p: [N, N, L, L, L]
+    
+    func convertingPreToInOrder(pre: [Int], p: [String]) {
+        if pre.isEmpty {
+            return
+        }
+        let tree = FullBinaryTree()
+        tree.root = TreeNode(pre[0])
+        let stack = Stack<TreeNode>(size: 100)
+        _ = stack.push(tree.root)
+        for i in 1..<pre.count {
+            let element = pre[i]
+            let isNode = (p[i] == "N")
+            if let peek = stack.peek {
+                if isNode {
+                    if peek.hasLeftChild {
+                        let pop = stack.pop()
+                        let newtreeNode = TreeNode(element)
+                        pop?.right = newtreeNode
+                        _ = stack.push(newtreeNode)
+                    } else {
+                        let newtreeNode = TreeNode(element)
+                        peek.left = newtreeNode
+                        _ = stack.push(newtreeNode)
+                    }
+                } else {
+                    if peek.hasLeftChild {
+                        let pop = stack.pop()
+                        let newtreeNode = TreeNode(element)
+                        pop?.right = newtreeNode
+                    } else {
+                        let newtreeNode = TreeNode(element)
+                        peek.left = newtreeNode
+                    }
+                }
+            }
+        }
+        tree.printTheTreeInOrderUsingStack(root: tree.root)
+    }
+    func convertingPreToInOrderWithoutStack(pre: [Int], p: [String]) {
+        if pre.isEmpty {
+            return
+        }
+        let tree = FullBinaryTree()
+        tree.root = TreeNode(pre[0])
+        var index = 1
+        
+        func makeTree(prevNode: TreeNode) {
+            guard index < pre.count else {
+                return
+            }
+            let elementNode = TreeNode(pre[index])
+            let isNode = (p[index] == "N")
+            let isRight = prevNode.hasLeftChild
+            
+            if isRight {
+                prevNode.right = elementNode
+            } else {
+                prevNode.left = elementNode
+            }
+            
+            if isNode {
+               index += 1
+                makeTree(prevNode: elementNode)
+                index += 1
+                makeTree(prevNode: elementNode)
+            }
+        }
+        makeTree(prevNode: tree.root)
+        tree.printTreeAsPyramid(tree.root).printMatrix()
+    }
+}
+

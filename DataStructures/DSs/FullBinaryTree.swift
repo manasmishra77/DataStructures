@@ -37,6 +37,9 @@ class FullBinaryTree {
             i+=1
         }
     }
+    init() {
+        
+    }
     
     
     func searchInBinaryTree(_ data: Int, root: TreeNode) -> TreeNode? {
@@ -149,7 +152,7 @@ extension FullBinaryTree {
                 while !((newTemp?.hasRightChild)!) {
                     newTemp = stack.pop()
                     print(newTemp!.data ?? 0)
-                    if newTemp == nil {
+                    if newTemp == nil || stack.isEmpty {
                         break
                     }
                 }

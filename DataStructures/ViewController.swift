@@ -33,16 +33,16 @@ class ViewController: UIViewController {
         
         //-1, -2, 3, 4, -5
 
-        let linkedList = LinkedList<Int>(data: -1)
-        linkedList.append(-2)
-        linkedList.append(-3)
-        linkedList.append(4)
-        linkedList.append(5)
-        linkedList.append(-6)
-        linkedList.append(7)
-        linkedList.append(-8)
-        linkedList.append(9)
-        mergeSortUsingLinkedList(list: linkedList)
+//        let linkedList = LinkedList<Int>(data: -1)
+//        linkedList.append(-2)
+//        linkedList.append(-3)
+//        linkedList.append(4)
+//        linkedList.append(5)
+//        linkedList.append(-6)
+//        linkedList.append(7)
+//        linkedList.append(-8)
+//        linkedList.append(9)
+//        mergeSortUsingLinkedList(list: linkedList)
        // Problems().sortLinkListActucally(linklist: linkedList)
         //linkedList.printList()
         
@@ -57,6 +57,10 @@ class ViewController: UIViewController {
 //        arr = [4, 3, 2, 1]
 //        //mergeSortOnArray(arr: &arr)
 //        quickSortOnArray(arr: &arr)
+        
+        let pre = [1, 2, 4, 6, 5, 3]
+        let p = ["N", "N", "N", "L", "L", "L"]
+        Problems().convertingPreToInOrderWithoutStack(pre: pre, p: p)
     }
     
     func trie() {
