@@ -55,6 +55,94 @@ func mergeSortOnArray(arr: inout [Int]) {
     print(arr)
 }
 
+func mergeSortUsingLinkedList(list: LinkedList<Int>) {
+   // list.printList()
+    typealias NodeInt = Node<Int>
+    func swap(node1: NodeInt, node2: NodeInt) {
+        let temp = node1.data
+        node1.data = node2.data
+        node2.data = temp
+    }
+    
+    func middlePoint(start: NodeInt, end: NodeInt) -> NodeInt? {
+        if start === end {return nil}
+        var temp: NodeInt? = start
+        var temp2: NodeInt? = start
+        
+        while !(temp2 === end) {
+            if (temp2?.next === end) {
+                break
+            }
+            temp2 = temp2?.next?.next
+            if (temp2 === end) {
+                break
+            }
+            temp = temp?.next
+        }
+        return temp
+    }
+    
+    func mergeList(start: NodeInt, end: NodeInt, middle: NodeInt) {
+        var newList: LinkedList<Int>?
+        var tempForFirstList: NodeInt? = start
+        var tempForSecondList = middle.next
+        
+        while !(tempForFirstList === middle.next) && !(tempForSecondList === end.next) {
+            if (tempForFirstList!.data < tempForSecondList!.data) {
+                if newList == nil {
+                    newList = LinkedList<Int>(data: tempForFirstList!.data)
+                } else {
+                    newList?.append(tempForFirstList!.data)
+                }
+                tempForFirstList = tempForFirstList?.next
+            } else {
+                if newList == nil {
+                    newList = LinkedList<Int>(data: tempForSecondList!.data)
+                } else {
+                    newList?.append(tempForSecondList!.data)
+                }
+                tempForSecondList = tempForSecondList?.next
+            }
+        }
+        
+        if !(tempForFirstList === middle.next) {
+            if newList == nil {
+                newList = LinkedList<Int>(data: tempForFirstList!.data)
+            } else {
+                newList?.append(tempForFirstList!.data)
+            }
+            tempForFirstList = tempForFirstList?.next
+        }
+        if !(tempForSecondList === end.next) {
+            if newList == nil {
+                newList = LinkedList<Int>(data: tempForSecondList!.data)
+            } else {
+                newList?.append(tempForSecondList!.data)
+            }
+            tempForSecondList = tempForSecondList?.next
+        }
+        
+        var temp = newList?.head
+        tempForFirstList = start
+        
+        while temp != nil {
+            tempForFirstList?.data = temp?.data
+            temp = temp?.next
+            tempForFirstList = tempForFirstList?.next
+        }
+    }
+    
+    func mergeSort(start: NodeInt?, end: NodeInt?) {
+        guard let start = start, let end = end else {return}
+        guard let middlePoint = middlePoint(start: start, end: end) else {return}
+        mergeSort(start: start, end: middlePoint)
+        mergeSort(start: middlePoint.next, end: end)
+        mergeList(start: start, end: end, middle: middlePoint)
+    }
+    mergeSort(start: list.head, end: list.last)
+    list.printList()
+}
+
 func quickSortOnArray(arr: inout [Int]) {
     
     func swap(index1: Int, index2: Int) {

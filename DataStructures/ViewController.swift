@@ -32,18 +32,19 @@ class ViewController: UIViewController {
 //        print(Problems().returningTheSubstringArray(a1: a1, a2: a2))
         
         //-1, -2, 3, 4, -5
-//
-//        let linkedList = LinkedList<Int>(data: -1)
-//        linkedList.append(-2)
-//        linkedList.append(-3)
-//        linkedList.append(4)
-//        linkedList.append(5)
-//        linkedList.append(-6)
-//        linkedList.append(7)
-//        linkedList.append(-8)
-//        linkedList.append(9)
-//        Problems().sortLinkListActucally(linklist: linkedList)
-//        linkedList.printList()
+
+        let linkedList = LinkedList<Int>(data: -1)
+        linkedList.append(-2)
+        linkedList.append(-3)
+        linkedList.append(4)
+        linkedList.append(5)
+        linkedList.append(-6)
+        linkedList.append(7)
+        linkedList.append(-8)
+        linkedList.append(9)
+        mergeSortUsingLinkedList(list: linkedList)
+       // Problems().sortLinkListActucally(linklist: linkedList)
+        //linkedList.printList()
         
 //        let str = "1ad23s"
 //        Problems().numberFromString(str: str)
@@ -51,11 +52,11 @@ class ViewController: UIViewController {
 //        let rec2 = Problems.Rectangle(bottomLeft: CGPoint(x: 3, y: 0), topRight: CGPoint(x: 7, y: 3))
 //        print(Problems().areaOfOverlappingRectangle(rec1: rec1, rec2: rec2))
         
-        var arr = [3, 4, 7, 5, 6, 8, 1, 9, 2]
-        arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        arr = [4, 3, 2, 1]
-        //mergeSortOnArray(arr: &arr)
-        quickSortOnArray(arr: &arr)
+//        var arr = [3, 4, 7, 5, 6, 8, 1, 9, 2]
+//        arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+//        arr = [4, 3, 2, 1]
+//        //mergeSortOnArray(arr: &arr)
+//        quickSortOnArray(arr: &arr)
     }
     
     func trie() {

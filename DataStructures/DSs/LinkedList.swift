@@ -31,6 +31,14 @@ class LinkedList<Element: Equatable> {
         head.data = data
     }
     
+    var last: Node<Element>? {
+        var temp = head
+        while temp?.next != nil {
+            temp = temp?.next
+        }
+        return temp
+    }
+    
     func printList() {
         var temp = head
         while temp != nil {
