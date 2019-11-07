@@ -154,4 +154,25 @@ class LinkedList<Element: Equatable> {
         reverseTheLinkedList(node?.next, prevnode: node)
         node?.next = prevnode
     }
+    func isListHavingALoopAndStartingIndex(_ root: Node<Element>) -> Int? {
+        var temp = head
+        var temp2 = head
+        while (temp != nil) || !(temp === temp2) {
+            temp2 = temp2?.next?.next
+            temp = temp?.next
+        }
+        if temp != nil {
+            //Loop exists
+            var i = 0
+            temp2 = head
+            while !(temp === temp2) {
+                temp = temp?.next
+                temp2 = temp2?.next
+                i += 1
+            }
+            return i
+        } else {
+            return nil
+        }
+    }
 }

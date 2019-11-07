@@ -297,3 +297,29 @@ extension Problems {
     }
 }
 
+extension Problems {
+    //Find possible sum of the  3 or 5 or 10 points in a move. Given a total score n, find number of distinct combinations to reach the given score.
+    //Dynamic Programming
+    func findPossibleCombinationToReachSum(sum: Int) -> Int {
+        var count = 0
+        var i = 0
+        func isSumReached(sum: Int) {
+            i += 1
+            if sum == 0 {
+                count += 1
+                return
+            }
+            if sum < 0 {
+                return
+            }
+            isSumReached(sum: sum-3)
+            isSumReached(sum: sum-5)
+            isSumReached(sum: sum-10)
+        }
+        isSumReached(sum: sum)
+        print(count)
+        print(i)
+        return count
+    }
+}
+

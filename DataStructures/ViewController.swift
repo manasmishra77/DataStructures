@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnClicked(_ sender: UIButton) {
+        if let numText = textfield.text, let num = Int(numText) {
+            Problems().findPossibleCombinationToReachSum(sum: num)
+        }
         //if let numText = textfield.text {
             //let arr = "12L13R24L25R36L37R"
 //            let arr = "12L13R24L25R36L37R59R58L80R"
@@ -57,10 +60,11 @@ class ViewController: UIViewController {
 //        arr = [4, 3, 2, 1]
 //        //mergeSortOnArray(arr: &arr)
 //        quickSortOnArray(arr: &arr)
+//
+//        let pre = [1, 2, 4, 6, 5, 3]
+//        let p = ["N", "N", "N", "L", "L", "L"]
+//        Problems().convertingPreToInOrderWithoutStack(pre: pre, p: p)
         
-        let pre = [1, 2, 4, 6, 5, 3]
-        let p = ["N", "N", "N", "L", "L", "L"]
-        Problems().convertingPreToInOrderWithoutStack(pre: pre, p: p)
     }
     
     func trie() {
