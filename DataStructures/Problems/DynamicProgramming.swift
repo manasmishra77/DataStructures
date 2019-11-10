@@ -89,3 +89,52 @@ extension Problems {
         return s
     }
 }
+
+extension Problems {
+    //Given an array sequence [A1, A2 …An], the task is to find the maximum possible sum of increasing subsequence S of length k such that S1<=S2<=S3………<=Sk.
+    func getMaximumSum(kTh: Int, arr: [Int]) -> Int {
+        var sum = 0
+        var sums = [[Int?]]()
+        for i in 0..<arr.count {
+            var a = [Int?]()
+            for j in 0..<kTh {
+                a.append(nil)
+            }
+            sums.append(a)
+        }
+        
+        func replaceWithNewSum(newS: Int) {
+            if sum < newS {
+                sum = newS
+            }
+        }
+        var j = 0
+        
+        func getSum(k: Int, s: Int, i: Int, p: Int?) -> Int {
+            guard (i < arr.count && k > 0) else {
+                if k == 0 {
+                    return s
+                }
+                return 0
+            }
+            
+            
+            if let sum = sums[i][k-1] {
+                return sum
+            }
+            j += 1
+            print(j)
+            
+            let newS = getSum(k: k-1, s: s + arr[i], i: i+1, p: i)
+            sums[i][k-1] = newS
+            
+            let newSC = getSum(k: k, s: s, i: i+1, p: p)
+            //sums[i][k] = newS
+            
+            return max(newS, newSC)
+        }
+        
+        print(getSum(k: kTh, s: sum, i: 0, p: nil))
+        return sum
+    }
+}
