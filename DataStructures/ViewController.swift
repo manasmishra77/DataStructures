@@ -58,9 +58,10 @@ class ViewController: UIViewController {
 //        //mergeSortOnArray(arr: &arr)
 //        quickSortOnArray(arr: &arr)
         
-        let pre = [1, 2, 4, 6, 5, 3]
-        let p = ["N", "N", "N", "L", "L", "L"]
-        Problems().convertingPreToInOrderWithoutStack(pre: pre, p: p)
+//        let pre = [1, 2, 4, 6, 5, 3]
+//        let p = ["N", "N", "N", "L", "L", "L"]
+//        Problems().convertingPreToInOrderWithoutStack(pre: pre, p: p)
+        Problems().fibbonacciNumbers(till: 15)
     }
     
     func trie() {

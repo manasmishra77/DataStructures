@@ -14,6 +14,7 @@
 		B694EA1523684175001FA706 /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B694EA1423684175001FA706 /* Trie.swift */; };
 		B6A416D62364556700194540 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A416D52364556700194540 /* Stack.swift */; };
 		B6A72357236414B800F34BBB /* FullBinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A72356236414B800F34BBB /* FullBinaryTree.swift */; };
+		B6B8A3BD2374014A00949815 /* DynamicProgramming.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B8A3BC2374014A00949815 /* DynamicProgramming.swift */; };
 		B6BF64D22365EDFA00527062 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF64D12365EDFA00527062 /* Queue.swift */; };
 		B6C02FF5236702C200559B67 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C02FF4236702C200559B67 /* Matrix.swift */; };
 		B6C50690236EAA0100A691B6 /* Sorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5068F236EAA0100A691B6 /* Sorting.swift */; };
@@ -53,6 +54,7 @@
 		B694EA1423684175001FA706 /* Trie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		B6A416D52364556700194540 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		B6A72356236414B800F34BBB /* FullBinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullBinaryTree.swift; sourceTree = "<group>"; };
+		B6B8A3BC2374014A00949815 /* DynamicProgramming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProgramming.swift; sourceTree = "<group>"; };
 		B6BF64D12365EDFA00527062 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		B6C02FF4236702C200559B67 /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		B6C5068F236EAA0100A691B6 /* Sorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sorting.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				B683DC132362D0A10071974C /* Problems.swift */,
+				B6B8A3BC2374014A00949815 /* DynamicProgramming.swift */,
 			);
 			path = Problems;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				B6C50690236EAA0100A691B6 /* Sorting.swift in Sources */,
 				B6DC3859235B839900791487 /* SceneDelegate.swift in Sources */,
 				B6C02FF5236702C200559B67 /* Matrix.swift in Sources */,
+				B6B8A3BD2374014A00949815 /* DynamicProgramming.swift in Sources */,
 				B6A416D62364556700194540 /* Stack.swift in Sources */,
 				B64FC0F12369B11D005A3E79 /* Utility.swift in Sources */,
 				B683DC142362D0A10071974C /* Problems.swift in Sources */,
