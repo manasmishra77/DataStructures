@@ -297,3 +297,61 @@ extension Problems {
     }
 }
 
+extension Problems {
+    //Find possible sum of the  3 or 5 or 10 points in a move. Given a total score n, find number of distinct combinations to reach the given score.
+    //Dynamic Programming
+    func findPossibleCombinationToReachSum(sum: Int) -> Int {
+        var count = 0
+        var i = 0
+        func isSumReached(sum: Int) {
+            i += 1
+            if sum == 0 {
+                count += 1
+                return
+            }
+            if sum < 0 {
+                return
+            }
+            isSumReached(sum: sum-3)
+            isSumReached(sum: sum-5)
+            isSumReached(sum: sum-10)
+        }
+        isSumReached(sum: sum)
+        print(count)
+        print(i)
+        return count
+    }
+}
+
+extension Problems {
+    //find the maximum possible coin can be fetched
+    func findMaximumCoin(a: [Int]) -> Int {
+        var i = 0
+        func getMaximumPossibleCoin(_ s: Int, _ e: Int) -> Int {
+            i += 1
+            print(i)
+            if s+1 == e {
+                return max(a[s], a[e])
+            } else if s == e {
+                return max(a[s], a[e])
+            }
+            guard s < e else {return 0}
+            //if s is to be taken
+            //Case1:
+            let newSForCase1 = (a[s+1] > a[e]) ? s+2 : s+1
+            let newEForCase1 = (a[s+1] > a[e]) ? e : e-1
+            let sumForCase1 = a[s] + getMaximumPossibleCoin(newSForCase1, newEForCase1)
+            
+            //Case2:
+            let newSForCase2 = (a[s] > a[e-1]) ? s+1 : s
+            let newEForCase2 = (a[s] > a[e-1]) ? e-1 : e-2
+            let sumForCase2 = a[e] + getMaximumPossibleCoin(newSForCase2, newEForCase2)
+            
+            return max(sumForCase1, sumForCase2)
+        }
+        
+        let s = getMaximumPossibleCoin(0, a.count-1)
+        print(s)
+        return s
+    }
+}
