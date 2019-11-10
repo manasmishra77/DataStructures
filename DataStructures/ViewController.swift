@@ -64,9 +64,9 @@ class ViewController: UIViewController {
 //        let pre = [1, 2, 4, 6, 5, 3]
 //        let p = ["N", "N", "N", "L", "L", "L"]
 //        Problems().convertingPreToInOrderWithoutStack(pre: pre, p: p)
-        Problems().fibbonacciNumbers(till: 15)
+        //Problems().fibbonacciNumbers(till: 15)
         
-        Problems().findMaximumCoin(a: [5, 7, 14, 3, 6])
+        Problems().findMaximumCoin(a: [5, 7, 14, 3, 6, 5, 7, 14, 3, 6])
         
     }
     
