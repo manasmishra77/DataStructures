@@ -66,7 +66,16 @@ class ViewController: UIViewController {
 //        Problems().convertingPreToInOrderWithoutStack(pre: pre, p: p)
         //Problems().fibbonacciNumbers(till: 15)
         
-        Problems().findMaximumCoin(a: [5, 7, 14, 3, 6, 5, 7, 14, 3, 6])
+        //Problems().findMaximumCoin(a: [5, 7, 14, 3, 6, 5, 7, 14, 3, 6])
+       // let arr = [8, 5, 9, 10, 5, 6, 21, 8]
+//        let arr = [2, 5, 3, 9, 15, 33, 6, 18, 20]
+//        Problems().getMaximumSum(kTh: 4, arr: arr)
+        
+        var arr = [5, -6, 4, 8, 7, -3, 9, 5, 6]
+        arr = [-2, -3, 4, -1, -2, 1, 5, -3]
+        
+        Problems().getLargestSumOfSubArray(arr: arr)
+        
         
     }
     

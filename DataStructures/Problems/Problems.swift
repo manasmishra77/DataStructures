@@ -322,5 +322,24 @@ extension Problems {
         return count
     }
 }
+extension Problems {
+    //Largest Sum Contiguous Subarray
+    func getLargestSumOfSubArray(arr: [Int]) -> Int {
+        var l = 0
+        var s = 0
+        for each in arr {
+            if (s+each) >= 0, s>0 {
+                s += each
+            } else {
+                s = each
+            }
+            if l < s {
+                l = s
+            }
+        }
+        print(l)
+        return l
+    }
+}
 
 

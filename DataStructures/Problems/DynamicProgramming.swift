@@ -110,31 +110,30 @@ extension Problems {
         }
         var j = 0
         
-        func getSum(k: Int, s: Int, i: Int, p: Int?) -> Int {
+        func getSum(k: Int, s: Int, i: Int, p: Int?) {
             guard (i < arr.count && k > 0) else {
                 if k == 0 {
-                    return s
+                    replaceWithNewSum(newS: s)
                 }
-                return 0
+                return
             }
-            
-            
-            if let sum = sums[i][k-1] {
-                return sum
+            var iCanBeUsed = true
+            if let p = p {
+                iCanBeUsed = arr[i] >= arr[p]
             }
+
             j += 1
             print(j)
             
-            let newS = getSum(k: k-1, s: s + arr[i], i: i+1, p: i)
-            sums[i][k-1] = newS
-            
-            let newSC = getSum(k: k, s: s, i: i+1, p: p)
-            //sums[i][k] = newS
-            
-            return max(newS, newSC)
+            if iCanBeUsed {
+                getSum(k: k-1, s: s + arr[i], i: i+1, p: i)
+            }
+            getSum(k: k, s: s, i: i+1, p: p)
         }
         
-        print(getSum(k: kTh, s: sum, i: 0, p: nil))
+        getSum(k: kTh, s: sum, i: 0, p: nil)
+        
+        print(sum)
         return sum
     }
 }
