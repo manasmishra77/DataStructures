@@ -181,3 +181,67 @@ extension Problems {
         return num
     }
 }
+
+
+extension Problems {
+    //Tiling Problem
+    func noOfWaysForTiling(for n: Int) -> Int {
+        var ways: [Int] = [0, 1, 2]
+        
+        func countWays(n: Int) -> Int {
+            if n < ways.count {
+                return ways[n]
+            }
+            let way = countWays(n: n-1) + countWays(n: n-2)
+            ways.append(way)
+            return way
+        }
+        let way = countWays(n: n)
+        print(way)
+        return way
+    }
+}
+extension Problems {
+    //Gold Mine Problem
+    func maximumGoldCoin(for arr: [[Int]]) -> Int {
+        let maxC = arr.first?.count ?? 0
+        let maxR = arr.count
+        var coins: [[Int?]] = []
+        for i in 0..<maxR {
+            var eachRow = [Int?]()
+            for _ in 0..<maxC {
+                eachRow.append(nil)
+            }
+            coins.append(eachRow)
+        }
+        
+        func findMaxCoin(c: Int, r: Int) -> Int {
+            //Border case
+            if c == maxC || r == maxC || r < 0 {
+                return 0
+            }
+            if coins[r][c] != nil {
+                return coins[r][c]!
+            }
+            //first column case
+            if c == 0 {
+                var largestCoin = 0
+                for i in 0..<maxR {
+                    let coin = arr[i][c] + max(findMaxCoin(c: 1, r: i-1), findMaxCoin(c: 1, r: i+1), findMaxCoin(c: 1, r: i))
+                    if largestCoin < coin {
+                        largestCoin = coin
+                    }
+                }
+                return largestCoin
+            }
+            //
+            let coin = arr[r][c] + max(findMaxCoin(c: c+1, r: r-1), findMaxCoin(c: c+1, r: r+1), findMaxCoin(c: c+1, r: r))
+            coins[r][c] = coin
+            return coin
+        }
+        let coin = findMaxCoin(c: 0, r: 0)
+        print(coin)
+        return coin
+    }
+}
+

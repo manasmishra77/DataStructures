@@ -18,7 +18,8 @@ class ViewController: UIViewController {
 
     @IBAction func btnClicked(_ sender: UIButton) {
         if let numText = textfield.text, let num = Int(numText) {
-            Problems().nthUglyNum(num)
+            //Problems().nthUglyNum(num)
+            Problems().noOfWaysForTiling(for: num)
         }
         //if let numText = textfield.text {
             //let arr = "12L13R24L25R36L37R"
@@ -71,10 +72,14 @@ class ViewController: UIViewController {
 //        let arr = [2, 5, 3, 9, 15, 33, 6, 18, 20]
 //        Problems().getMaximumSum(kTh: 4, arr: arr)
         
-        var arr = [5, -6, 4, 8, 7, -3, 9, 5, 6]
-        arr = [-2, -3, 4, -1, -2, 1, 5, -3]
+        //var arr = [5, -6, 4, 8, 7, -3, 9, 5, 6]
+        //arr = [-2, -3, 4, -1, -2, 1, 5, -3]
         
         //Problems().getLargestSumOfSubArray(arr: arr)
+        
+        var arr = [[1, 3, 3], [2, 1, 4], [0, 6, 4]]
+        arr = [[10, 33, 13, 15], [22, 21, 04, 1], [5, 0, 2, 3], [0, 6, 14, 2]]
+        Problems().maximumGoldCoin(for: arr)
         
         
         
