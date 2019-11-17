@@ -65,8 +65,6 @@ extension Problems {
             }
             guard s < e else {return 0}
             
-            
-            
             //if s is to be taken
             //Case1:
             let newSForCase1 = (a[s+1] > a[e]) ? s+2 : s+1
@@ -135,5 +133,51 @@ extension Problems {
         
         print(sum)
         return sum
+    }
+}
+
+extension Problems {
+    //Given a number n, the task is to find n’th Ugly number.
+    
+    func nthUglyNum(_ n: Int) -> Int {
+        var uglyNumCount = 1
+        var num = 2
+        var nums: [Bool] = [true]
+        var uglyFactors: [Int] = [2, 3, 5]
+        
+        func isUgly(_ n: Int) -> Bool {
+            var n = n
+            var p = 0
+            
+            while (uglyFactors[p] < n) {
+                if nums.count > n-1 {
+                    return nums[n-1]
+                }
+                if (n%uglyFactors[p]) == 0 {
+                    n = n/uglyFactors[p]
+                } else {
+                    if p == uglyFactors.count-1 {
+                        return false
+                    } else {
+                        p += 1
+                    }
+                }
+            }
+            return true
+        }
+ 
+        while uglyNumCount < n {
+            let ugly = isUgly(num)
+            nums.append(ugly)
+            if ugly {
+                uglyNumCount += 1
+                if uglyNumCount == n {
+                    break
+                }
+            }
+            num += 1
+        }
+        print(num)
+        return num
     }
 }

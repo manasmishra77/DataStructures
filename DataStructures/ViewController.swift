@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     @IBAction func btnClicked(_ sender: UIButton) {
         if let numText = textfield.text, let num = Int(numText) {
-            //Problems().findPossibleCombinationToReachSum(sum: num)
+            Problems().nthUglyNum(num)
         }
         //if let numText = textfield.text {
             //let arr = "12L13R24L25R36L37R"
@@ -74,7 +74,8 @@ class ViewController: UIViewController {
         var arr = [5, -6, 4, 8, 7, -3, 9, 5, 6]
         arr = [-2, -3, 4, -1, -2, 1, 5, -3]
         
-        Problems().getLargestSumOfSubArray(arr: arr)
+        //Problems().getLargestSumOfSubArray(arr: arr)
+        
         
         
     }
