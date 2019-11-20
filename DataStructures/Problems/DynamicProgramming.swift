@@ -245,3 +245,23 @@ extension Problems {
     }
 }
 
+extension Problems {
+    //The 0/1 Knapsack Problem (Demystifying Dynamic Programming)
+    
+    func findTheMaximumCoinPossibleFromThegivenCondition(prices p: [Int], weight w: [Int], maxW: Int) -> Int {
+        let matrix = Matrix<Int>(r: w.count+1, c: maxW+1)
+        
+        for r in 1...w.count {
+            for c in 1...maxW {
+                if c < w[r-1] {
+                    _ = matrix.add(r: r, c: c, data: matrix.getRow(r-1)[c] ?? 0)
+                } else {
+                    let data = max(p[r-1]+(matrix.getRow(r-1)[(c-w[r-1])] ?? 0), matrix.getRow(r-1)[c] ?? 0)
+                    _ = matrix.add(r: r, c: c, data: data)
+                }
+            }
+        }
+        print(matrix.getRow(w.count)[maxW] ?? 0)
+        return matrix.getRow(w.count)[maxW] ?? 0
+    }
+}

@@ -77,9 +77,12 @@ class ViewController: UIViewController {
         
         //Problems().getLargestSumOfSubArray(arr: arr)
         
-        var arr = [[1, 3, 3], [2, 1, 4], [0, 6, 4]]
-        arr = [[10, 33, 13, 15], [22, 21, 04, 1], [5, 0, 2, 3], [0, 6, 14, 2]]
-        Problems().maximumGoldCoin(for: arr)
+//        var arr = [[1, 3, 3], [2, 1, 4], [0, 6, 4]]
+//        arr = [[10, 33, 13, 15], [22, 21, 04, 1], [5, 0, 2, 3], [0, 6, 14, 2]]
+//        Problems().maximumGoldCoin(for: arr)
+        
+        Problems().findTheMaximumCoinPossibleFromThegivenCondition(prices: [60, 100, 120], weight: [10, 20, 30], maxW: 50)
+        //Problems().findTheMaximumCoinPossibleFromThegivenCondition(prices: [6, 10, 12], weight: [1, 2, 3], maxW: 5)
         
         
         
